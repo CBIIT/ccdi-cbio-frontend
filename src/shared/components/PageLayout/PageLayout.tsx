@@ -1,10 +1,10 @@
 import * as React from 'react';
-import RightBar from '../rightbar/RightBar';
-import { Component } from 'react';
+// import RightBar from '../rightbar/RightBar';
+// import { Component } from 'react';
 import classNames from 'classnames';
 import { inject } from 'mobx-react';
 import { AppStore } from '../../../AppStore';
-import PortalFooter from '../../../appShell/App/PortalFooter';
+// import PortalFooter from '../../../appShell/App/PortalFooter';
 
 interface IPageLayout {
     rightBar?: any;
@@ -36,9 +36,9 @@ export class PageLayout extends React.Component<IPageLayout, {}> {
                     )}
                 </div>
 
-                {!this.props.hideFooter && (
+                {/* {!this.props.hideFooter && (
                     <PortalFooter appStore={this.props.appStore!} />
-                )}
+                )} */}
             </div>
         );
     }

@@ -134,11 +134,14 @@ export default class Visualize extends React.Component<{}, {}> {
                 <div className="alert alert-info" role="alert">
                     When using these tools in your publication,{' '}
                     <b>please cite</b>{' '}
-                    <a href={getNCBIlink('/pubmed/23550210')}>
+                    <a href={getNCBIlink('/pubmed/23550210')} target="_blank">
                         Gao et al. <i>Sci. Signal.</i> 2013
                     </a>{' '}
                     &amp;{' '}
-                    <a href="http://cancerdiscovery.aacrjournals.org/content/2/5/401.abstract">
+                    <a
+                        href="http://cancerdiscovery.aacrjournals.org/content/2/5/401.abstract"
+                        target="_blank"
+                    >
                         Cerami et al. <i>Cancer Discov.</i> 2012
                     </a>
                     .
