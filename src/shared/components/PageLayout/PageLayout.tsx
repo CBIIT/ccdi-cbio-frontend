@@ -16,6 +16,20 @@ interface IPageLayout {
 
 @inject('appStore')
 export class PageLayout extends React.Component<IPageLayout, {}> {
+    // // CCDI-TODO: Make the iframe height fit for the content
+    // setHeight() {
+    //     setTimeout(() => {
+    //         const height = document.querySelectorAll(".cbioportal-frontend")[0].scrollHeight;
+    //         console.log('height:', height)
+    //         window.parent.postMessage(["setHeight", height], "*");
+    //     }, 10000);
+    // }
+    // componentDidMount() {
+    //     this.setHeight();
+    // }
+    // componentDidUpdate(prevProps: Readonly<IPageLayout>, prevState: Readonly<{}>, snapshot?: any): void {
+    //     this.setHeight();
+    // }
     render() {
         const noMargin = this.props.noMargin ? 'noMargin' : '';
 
