@@ -65,7 +65,9 @@ export function buildCBioPortalPageUrl(
         protocol: window.location.protocol,
         host:
             getLoadConfig().baseUrl ||
-            getLoadConfig().frontendUrl?.slice(2, -1),
+            // getLoadConfig().frontendUrl?.slice(2, -1),
+            // @ts-ignore: ENV_* are defined in webpack.config.js
+            ENV_CCDI_CBIO_SITE_URL.split('//')[1],
         ...params,
     });
 }
