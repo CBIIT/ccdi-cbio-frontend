@@ -28,7 +28,14 @@ export default class ErrorPage extends React.Component<
                     <ErrorScreen
                         title={"Sorry, this page doesn't exist."}
                         body={
-                            <a href={buildCBioPortalPageUrl('/')}>
+                            <a
+                                href={buildCBioPortalPageUrl(
+                                    '/',
+                                    {},
+                                    '',
+                                    false
+                                )}
+                            >
                                 Return to homepage
                             </a>
                         }

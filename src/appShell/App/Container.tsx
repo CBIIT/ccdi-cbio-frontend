@@ -134,7 +134,10 @@ export default class Container extends React.Component<IContainerProps, {}> {
                                         body={
                                             <a
                                                 href={buildCBioPortalPageUrl(
-                                                    '/'
+                                                    '/',
+                                                    {},
+                                                    '',
+                                                    false
                                                 )}
                                             >
                                                 Return to homepage

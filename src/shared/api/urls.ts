@@ -48,12 +48,14 @@ export function buildCBioPortalPageUrl(params: BuildUrlParams): string;
 export function buildCBioPortalPageUrl(
     pathname: string,
     query?: QueryParams,
-    hash?: string
+    hash?: string,
+    isMainUrl?: Boolean
 ): string;
 export function buildCBioPortalPageUrl(
     pathnameOrParams: string | BuildUrlParams,
     query?: QueryParams,
-    hash?: string
+    hash?: string,
+    isMainUrl = true
 ) {
     let params: BuildUrlParams =
         typeof pathnameOrParams === 'string'
@@ -67,7 +69,9 @@ export function buildCBioPortalPageUrl(
             getLoadConfig().baseUrl ||
             // getLoadConfig().frontendUrl?.slice(2, -1),
             // @ts-expect-error: ENV_* are defined in webpack.config.js
-            ENV_CCDI_CBIO_SITE_URL?.split('//')[1],
+            (isMainUrl
+                ? ENV_CCDI_CBIO_SITE_URL?.split('//')[1]
+                : getLoadConfig().frontendUrl?.slice(2, -1)),
         ...params,
     });
 }
