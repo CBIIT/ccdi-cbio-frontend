@@ -55,7 +55,7 @@ export function buildCBioPortalPageUrl(
     pathnameOrParams: string | BuildUrlParams,
     query?: QueryParams,
     hash?: string,
-    isMainUrl = true
+    isMainUrl: Boolean = true
 ) {
     let params: BuildUrlParams =
         typeof pathnameOrParams === 'string'
@@ -199,7 +199,12 @@ export function redirectToComparisonPage(
 export function getComparisonLoadingUrl(
     params?: Partial<GroupComparisonLoadingParams>
 ) {
-    return buildCBioPortalPageUrl('/loading/comparison', params || {});
+    return buildCBioPortalPageUrl(
+        '/loading/comparison',
+        params || {},
+        '',
+        false
+    );
 }
 
 export function getPubMedUrl(pmid: string) {
