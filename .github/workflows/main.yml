@@ -27,8 +27,8 @@ jobs:
           cache: 'yarn'
       - run: yarn set version 1.22.5
       - run: yarn install --frozen-lockfile
-      - run: yarn run test
       - run: yarn run build
+      - run: yarn run test
 
       - name: Setup GitHub Pages
         id: pages
