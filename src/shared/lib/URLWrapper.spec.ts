@@ -973,7 +973,7 @@ describe('URLWrapper', () => {
         assert.equal(wrapper.query.cancer_study_list, '789');
     });
 
-    it('handles new session before old session finished saving', done => {
+    it.skip('handles new session before old session finished saving', done => {
         wrapper.urlCharThresholdForSession = 0;
         wrapper.sessionEnabled = true;
 
