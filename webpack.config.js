@@ -98,11 +98,12 @@ var config = {
     entry: [`babel-polyfill`, `${path.join(src, 'appBootstrapper.tsx')}`],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'reactapp/[name].app.js',
-        chunkFilename: 'reactapp/[name].[chunkhash].chunk.js',
+        filename: 'ccdi-cbio-frontend/reactapp/[name].app.js',
+        chunkFilename:
+            'ccdi-cbio-frontend/reactapp/[name].[chunkhash].chunk.js',
         // cssFilename: 'reactapp/app.css',
         // hash: false,
-        publicPath: '/ccdi-cbio-frontend/',
+        publicPath: '/',
     },
 
     optimization: {
@@ -517,7 +518,7 @@ if (isDev || isTest) {
     // from dev server
     config.output.publicPath = `//localhost:${devPort}/`;
 } else {
-    config.output.publicPath = '/ccdi-cbio-frontend/';
+    config.output.publicPath = '/';
 
     // css modules for any scss matching test
     config.module.rules.push({
