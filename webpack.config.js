@@ -102,7 +102,7 @@ var config = {
         chunkFilename: 'reactapp/[name].[chunkhash].chunk.js',
         // cssFilename: 'reactapp/app.css',
         // hash: false,
-        publicPath: '/',
+        publicPath: '/ccdi-cbio-frontend/',
     },
 
     optimization: {
