@@ -517,7 +517,7 @@ if (isDev || isTest) {
     // from dev server
     config.output.publicPath = `//localhost:${devPort}/`;
 } else {
-    config.output.publicPath = '/';
+    config.output.publicPath = '/ccdi-cbio-frontend/';
 
     // css modules for any scss matching test
     config.module.rules.push({
