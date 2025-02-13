@@ -155,7 +155,7 @@ _.noConflict();
 const routingStore = new ExtendedRoutingStore();
 
 const history = createBrowserHistory({
-    basename: getLoadConfig().basePath || '',
+    basename: getLoadConfig().basePath || '/ccdi-cbio-frontend',
 });
 
 const syncedHistory = syncHistoryWithStore(history, routingStore);

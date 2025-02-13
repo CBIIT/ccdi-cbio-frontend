@@ -2,7 +2,6 @@
   "name": "cbioportal-frontend",
   "private": true,
   "version": "3.3.290",
-  "homepage": "/ccdi-cbio-frontend",
   "workspaces": {
     "packages": [
       ".",
