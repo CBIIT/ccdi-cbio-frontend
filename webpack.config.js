@@ -97,7 +97,7 @@ var config = {
     stats: 'detailed',
     entry: [`babel-polyfill`, `${path.join(src, 'appBootstrapper.tsx')}`],
     output: {
-        path: path.resolve(`${__dirname}/ccdi-cbio-frontend/`, 'dist'),
+        path: path.resolve(__dirname, 'dist'),
         filename: 'reactapp/[name].app.js',
         chunkFilename: 'reactapp/[name].[chunkhash].chunk.js',
         // cssFilename: 'reactapp/app.css',
@@ -382,7 +382,7 @@ var config = {
     },
     devServer: {
         static: {
-            directory: path.resolve(__dirname, 'dist'),
+            directory: path.resolve(__dirname, 'ccdi-cbio-frontend/dist'),
         },
         hot: true,
         historyApiFallback: true,
