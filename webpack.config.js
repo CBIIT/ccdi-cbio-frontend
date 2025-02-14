@@ -431,7 +431,7 @@ const defines = Object.keys(envVariables).reduce(
 config.plugins = [
     new webpack.DefinePlugin(defines),
     new MiniCssExtractPlugin({
-        filename: 'reactapp/styles.css',
+        filename: 'ccdi-cbio-frontend/reactapp/styles.css',
         allChunks: true,
     }),
     new webpack.ProvidePlugin({
