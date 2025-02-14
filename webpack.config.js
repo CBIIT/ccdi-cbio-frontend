@@ -97,7 +97,7 @@ var config = {
     stats: 'detailed',
     entry: [`babel-polyfill`, `${path.join(src, 'appBootstrapper.tsx')}`],
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(`${__dirname}/ccdi-cbio-frontend/`, 'dist'),
         filename: 'reactapp/[name].app.js',
         chunkFilename: 'reactapp/[name].[chunkhash].chunk.js',
         // cssFilename: 'reactapp/app.css',
@@ -431,7 +431,7 @@ const defines = Object.keys(envVariables).reduce(
 config.plugins = [
     new webpack.DefinePlugin(defines),
     new MiniCssExtractPlugin({
-        filename: 'ccdi-cbio-frontend/reactapp/styles.css',
+        filename: 'reactapp/styles.css',
         allChunks: true,
     }),
     new webpack.ProvidePlugin({
