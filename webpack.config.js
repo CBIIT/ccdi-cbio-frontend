@@ -102,7 +102,7 @@ var config = {
         chunkFilename: 'reactapp/[name].[chunkhash].chunk.js',
         // cssFilename: 'reactapp/app.css',
         // hash: false,
-        publicPath: '/',
+        publicPath: 'auto',
     },
 
     optimization: {
@@ -382,7 +382,7 @@ var config = {
     },
     devServer: {
         static: {
-            directory: path.resolve(__dirname, 'ccdi-cbio-frontend/dist'),
+            directory: path.resolve(__dirname, 'dist'),
         },
         hot: true,
         historyApiFallback: true,
@@ -517,7 +517,7 @@ if (isDev || isTest) {
     // from dev server
     config.output.publicPath = `//localhost:${devPort}/`;
 } else {
-    config.output.publicPath = '/';
+    config.output.publicPath = 'auto';
 
     // css modules for any scss matching test
     config.module.rules.push({
