@@ -6,8 +6,6 @@ var ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 var TerserPlugin = require('terser-webpack-plugin');
 var { TypedCssModulesPlugin } = require('typed-css-modules-webpack-plugin');
 
-console.log('__dirname:', __dirname);
-
 var commit = '"unknown"';
 var version = '"unknown"';
 // Don't show COMMIT/VERSION on Heroku (crashes, because no git dir)
@@ -101,7 +99,8 @@ var config = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'reactapp/[name].app.js',
-        chunkFilename: 'reactapp/[name].[chunkhash].chunk.js',
+        chunkFilename:
+            'ccdi-cbio-frontend/reactapp/[name].[chunkhash].chunk.js',
         // cssFilename: 'reactapp/app.css',
         // hash: false,
         publicPath: '/',
@@ -520,8 +519,6 @@ if (isDev || isTest) {
     config.output.publicPath = `//localhost:${devPort}/`;
 } else {
     config.output.publicPath = '/ccdi-cbio-frontend';
-
-    console.log('config:', config);
 
     // css modules for any scss matching test
     config.module.rules.push({
