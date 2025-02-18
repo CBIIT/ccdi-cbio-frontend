@@ -102,7 +102,7 @@ var config = {
         chunkFilename: 'reactapp/[name].[chunkhash].chunk.js',
         // cssFilename: 'reactapp/app.css',
         // hash: false,
-        publicPath: 'ccdi-cbio-frontend',
+        publicPath: '/',
     },
 
     optimization: {
@@ -518,6 +518,8 @@ if (isDev || isTest) {
     config.output.publicPath = `//localhost:${devPort}/`;
 } else {
     config.output.publicPath = '/ccdi-cbio-frontend';
+
+    console.log('config:', config);
 
     // css modules for any scss matching test
     config.module.rules.push({
