@@ -102,7 +102,7 @@ var config = {
         chunkFilename: 'reactapp/[name].[chunkhash].chunk.js',
         // cssFilename: 'reactapp/app.css',
         // hash: false,
-        publicPath: '/',
+        publicPath: 'ccdi-cbio-frontend',
     },
 
     optimization: {
@@ -172,7 +172,7 @@ var config = {
         }),
         new CopyWebpackPlugin({
             patterns: [
-                { from: './common-dist', to: 'ccdi-cbio-frontend/reactapp' },
+                { from: './common-dist', to: 'reactapp' },
                 { from: './src/rootImages', to: 'images' },
                 { from: './src/common', to: 'common' },
                 {
@@ -517,7 +517,7 @@ if (isDev || isTest) {
     // from dev server
     config.output.publicPath = `//localhost:${devPort}/`;
 } else {
-    config.output.publicPath = '/';
+    config.output.publicPath = 'ccdi-cbio-frontend';
 
     // css modules for any scss matching test
     config.module.rules.push({
