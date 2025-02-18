@@ -6,6 +6,8 @@ var ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 var TerserPlugin = require('terser-webpack-plugin');
 var { TypedCssModulesPlugin } = require('typed-css-modules-webpack-plugin');
 
+console.log('__dirname:', __dirname);
+
 var commit = '"unknown"';
 var version = '"unknown"';
 // Don't show COMMIT/VERSION on Heroku (crashes, because no git dir)
