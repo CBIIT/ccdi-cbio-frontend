@@ -56,7 +56,7 @@ export function buildCBioPortalPageUrl(
     query?: QueryParams,
     hash?: string,
     isMainUrl: boolean = true
-) {
+): string {
     let params: BuildUrlParams =
         typeof pathnameOrParams === 'string'
             ? { pathname: pathnameOrParams, query, hash }
