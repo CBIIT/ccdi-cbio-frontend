@@ -163,7 +163,7 @@ class GroupSelectorButton extends React.Component<
                     (ReactDOM as any).createPortal(
                         <Overlay
                             rootClose
-                            placement="top"
+                            placement="bottom"
                             show={this.hovered}
                             target={this.button}
                         >
