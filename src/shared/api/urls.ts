@@ -49,13 +49,13 @@ export function buildCBioPortalPageUrl(
     pathname: string,
     query?: QueryParams,
     hash?: string,
-    isMainUrl?: Boolean
+    isMainUrl?: boolean
 ): string;
 export function buildCBioPortalPageUrl(
     pathnameOrParams: string | BuildUrlParams,
     query?: QueryParams,
     hash?: string,
-    isMainUrl: Boolean = true
+    isMainUrl: boolean = true
 ) {
     let params: BuildUrlParams =
         typeof pathnameOrParams === 'string'
