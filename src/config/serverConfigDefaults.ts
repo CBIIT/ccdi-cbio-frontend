@@ -54,8 +54,7 @@ export const ServerConfigDefaults: Partial<IServerConfig> = {
     show_ndex: true,
     survival_show_p_q_values_in_survival_type_table: true,
     survival_min_group_threshold: 3,
-    skin_description:
-        'The cBioPortal for Cancer Genomics provides visualization, analysis and download of large-scale cancer genomics data sets',
+    skin_description: '',
     show_genomenexus: true,
     // TODO should support more sources such as clinvar,gnomad,sift
     show_genomenexus_annotation_sources: 'mutation_assessor',
