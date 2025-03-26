@@ -4,7 +4,7 @@ import { getBrowserWindow } from 'cbioportal-frontend-commons';
 import { observer } from 'mobx-react';
 import styles from './errorScreen.module.scss';
 import { getServerConfig } from 'config/config';
-import { buildCBioPortalPageUrl } from 'shared/api/urls';
+// import { buildCBioPortalPageUrl } from 'shared/api/urls';
 import { computed, makeObservable } from 'mobx';
 import autobind from 'autobind-decorator';
 var Clipboard = require('clipboard');
@@ -58,7 +58,7 @@ export default class ErrorScreen extends React.Component<
 
         return (
             <div className={styles.errorScreen}>
-                <a
+                {/* <a
                     className={styles.errorLogo}
                     href={buildCBioPortalPageUrl('/')}
                 >
@@ -66,7 +66,7 @@ export default class ErrorScreen extends React.Component<
                         src={require('../../../globalStyles/images/cbioportal_logo.png')}
                         alt="cBioPortal Logo"
                     />
-                </a>
+                </a> */}
 
                 {this.props.title && <h4>{this.props.title}</h4>}
 

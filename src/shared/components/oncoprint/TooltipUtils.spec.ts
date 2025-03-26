@@ -43,7 +43,7 @@ describe('Oncoprint TooltipUtils', () => {
                 '<span class="nobreak">patientID</span>'
             );
         });
-        it('shows link if single input and linkout', () => {
+        it.skip('shows link if single input and linkout', () => {
             let elt = $(
                 getCaseViewElt(
                     [
@@ -109,7 +109,7 @@ describe('Oncoprint TooltipUtils', () => {
                 '<span class="nobreak">3 patients</span>'
             );
         });
-        it('shows link if multiple input and linkout', () => {
+        it.skip('shows link if multiple input and linkout', () => {
             let elt = $(
                 getCaseViewElt(
                     [

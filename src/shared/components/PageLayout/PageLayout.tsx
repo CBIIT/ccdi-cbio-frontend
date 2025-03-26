@@ -1,10 +1,10 @@
 import * as React from 'react';
-import RightBar from '../rightbar/RightBar';
-import { Component } from 'react';
+// import RightBar from '../rightbar/RightBar';
+// import { Component } from 'react';
 import classNames from 'classnames';
 import { inject } from 'mobx-react';
 import { AppStore } from '../../../AppStore';
-import PortalFooter from '../../../appShell/App/PortalFooter';
+// import PortalFooter from '../../../appShell/App/PortalFooter';
 
 interface IPageLayout {
     rightBar?: any;
@@ -16,6 +16,23 @@ interface IPageLayout {
 
 @inject('appStore')
 export class PageLayout extends React.Component<IPageLayout, {}> {
+    // CCDI-TODO: Make the iframe height fit for the content
+    setHeight() {
+        setTimeout(() => {
+            const height = document.querySelectorAll('.cbioportal-frontend')[0]
+                .scrollHeight;
+            window.parent.postMessage(['setHeight', height], '*');
+        }, 3000);
+    }
+    componentDidMount() {
+        this.setHeight();
+    }
+    // componentWillUnmount(): void {
+    //     // remove event listener
+    // }
+    // componentDidUpdate(prevProps: Readonly<IPageLayout>, prevState: Readonly<{}>, snapshot?: any): void {
+    //     this.setHeight();
+    // }
     render() {
         const noMargin = this.props.noMargin ? 'noMargin' : '';
 
@@ -36,9 +53,9 @@ export class PageLayout extends React.Component<IPageLayout, {}> {
                     )}
                 </div>
 
-                {!this.props.hideFooter && (
+                {/* {!this.props.hideFooter && (
                     <PortalFooter appStore={this.props.appStore!} />
-                )}
+                )} */}
             </div>
         );
     }
