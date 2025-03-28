@@ -4,7 +4,7 @@ import 'cbioportal-frontend-commons/dist/styles.css';
 import '../../globalStyles/prefixed-global.scss';
 import { ToastContainer } from 'react-toastify';
 
-import PortalHeader from './PortalHeader';
+// import PortalHeader from './PortalHeader';
 import { getBrowserWindow, isWebdriver } from 'cbioportal-frontend-commons';
 import { observer } from 'mobx-react';
 
@@ -117,9 +117,9 @@ export default class Container extends React.Component<IContainerProps, {}> {
 
                             {shouldShowGenieWarning() && <GenieAgreement />}
 
-                            <div className="contentWidth">
+                            {/* <div className="contentWidth">
                                 <PortalHeader appStore={this.appStore} />
-                            </div>
+                            </div> */}
                         </div>
                         <If condition={this.appStore.isErrorCondition}>
                             <Then>
@@ -134,7 +134,10 @@ export default class Container extends React.Component<IContainerProps, {}> {
                                         body={
                                             <a
                                                 href={buildCBioPortalPageUrl(
-                                                    '/'
+                                                    '/',
+                                                    {},
+                                                    '',
+                                                    false
                                                 )}
                                             >
                                                 Return to homepage

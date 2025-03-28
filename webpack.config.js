@@ -145,6 +145,11 @@ var config = {
             VERSION: version,
             COMMIT: commit,
             IS_DEV_MODE: isDev,
+            ENV_CCDI_CBIO_SITE_URL: process.env.CCDI_CBIO_SITE_URL
+                ? JSON.stringify(
+                      cleanAndValidateUrl(process.env.CCDI_CBIO_SITE_URL)
+                  )
+                : '"replace_me_env_ccdi_cbio_site_url"',
             ENV_CBIOPORTAL_URL: process.env.CBIOPORTAL_URL
                 ? JSON.stringify(
                       cleanAndValidateUrl(process.env.CBIOPORTAL_URL)
