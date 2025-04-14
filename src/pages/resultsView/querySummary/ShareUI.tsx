@@ -31,8 +31,8 @@ export class ShareUI extends React.Component<IShareUI, {}> {
 
     async getUrls(): Promise<ShareUrls> {
         // const sessionUrl = new URL(win.location.href);
-        // @ts-expect-error: ENV_* are defined in webpack.config.js
         const sessionUrl = new URL(
+            // @ts-expect-error: ENV_* are defined in webpack.config.js
             ENV_CCDI_CBIO_SITE_URL +
                 window.location.pathname +
                 window.location.search
