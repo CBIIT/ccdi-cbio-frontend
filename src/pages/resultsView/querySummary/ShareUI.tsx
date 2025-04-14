@@ -30,7 +30,13 @@ export class ShareUI extends React.Component<IShareUI, {}> {
     @observable showBookmarkDialog: boolean = false;
 
     async getUrls(): Promise<ShareUrls> {
-        const sessionUrl = new URL(win.location.href);
+        // const sessionUrl = new URL(win.location.href);
+        // @ts-expect-error: ENV_* are defined in webpack.config.js
+        const sessionUrl = new URL(
+            ENV_CCDI_CBIO_SITE_URL +
+                window.location.pathname +
+                window.location.search
+        );
         if (this.props.userSettings) {
             const json = JSON.stringify(this.props.userSettings);
             sessionUrl.hash = `${USER_SETTINGS_QUERY_PARAM}=${json}`;
