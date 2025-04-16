@@ -2719,8 +2719,7 @@ export function submitToPage(
             'legacyStudySubmission',
             JSON.stringify(params)
         );
-        // window.open(buildCBioPortalPageUrl(url), target);
-        window.open(buildCBioPortalPageUrl(url, params), target);
+        window.open(buildCBioPortalPageUrl(url), target);
     } catch (e) {
         // try clearing localStorage
         window.localStorage.clear();
