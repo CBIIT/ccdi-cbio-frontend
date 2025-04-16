@@ -104,7 +104,7 @@ export const ServerConfigDefaults: Partial<IServerConfig> = {
         'tgct_tcga_pan_can_atlas_2018,thym_tcga_pan_can_atlas_2018,thca_tcga_pan_can_atlas_2018,ucs_tcga_pan_can_atlas_2018,' +
         'ucec_tcga_pan_can_atlas_2018,uvm_tcga_pan_can_atlas_2018',
     default_cross_cancer_study_list_name: 'TCGA PanCancer Atlas studies',
-    skin_title: 'cBioPortal for Cancer Genomics',
+    skin_title: 'CCDI cBioPortal',
 
     skin_data_sets_header: `The portal currently contains data from the following
             cancer genomics studies.  The table below lists the number of available samples per data type and tumor.`,

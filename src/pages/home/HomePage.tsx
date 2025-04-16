@@ -6,7 +6,7 @@ import 'react-select1/dist/react-select.css';
 import { QueryStore } from '../../shared/components/query/QueryStore';
 import QueryAndDownloadTabs from '../../shared/components/query/QueryAndDownloadTabs';
 import { PageLayout } from '../../shared/components/PageLayout/PageLayout';
-import RightBar from '../../shared/components/rightbar/RightBar';
+// import RightBar from '../../shared/components/rightbar/RightBar';
 // tslint:disable-next-line:no-import-side-effect
 import './homePage.scss';
 import autobind from 'autobind-decorator';
@@ -56,7 +56,7 @@ export default class HomePage extends React.Component<
             <PageLayout
                 className="homePageLayout"
                 noMargin={true}
-                rightBar={<RightBar queryStore={this.queryStore} />}
+                // rightBar={<RightBar queryStore={this.queryStore} />}
             >
                 <div
                     className={'headBlock'}

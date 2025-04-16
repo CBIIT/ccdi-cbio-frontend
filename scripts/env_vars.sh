@@ -3,6 +3,7 @@
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 RED='\033[0;31m'
 NC='\033[0m'
+BRANCH='master'
 
 if [[ "$CIRCLECI" ]]; then
     PR_BRANCH=$CIRCLE_BRANCH
