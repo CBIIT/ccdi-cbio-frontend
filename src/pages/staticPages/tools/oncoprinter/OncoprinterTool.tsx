@@ -412,9 +412,7 @@ export default class OncoprinterTool extends React.Component<
         return (
             <PageLayout className={'whiteBackground staticPage'}>
                 <Helmet>
-                    <title>
-                        {'cBioPortal for Cancer Genomics::Oncoprinter'}
-                    </title>
+                    <title>{'CCDI cBioPortal::Oncoprinter'}</title>
                 </Helmet>
                 <div className="cbioportal-frontend">
                     <h1 style={{ display: 'inline', marginRight: 10 }}>

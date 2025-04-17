@@ -409,7 +409,7 @@ export function buildResultsViewPageTitle(
     genes: string[],
     studies: CancerStudy[]
 ) {
-    const arr = ['cBioPortal for Cancer Genomics: '];
+    const arr = ['CCDI cBioPortal: '];
 
     if (genes.length) {
         arr.push(genes[0]);

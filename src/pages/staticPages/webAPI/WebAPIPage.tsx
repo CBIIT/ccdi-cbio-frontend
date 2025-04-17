@@ -78,7 +78,7 @@ export default class WebAPIPage extends React.Component<{}, {}> {
         return (
             <PageLayout className={'whiteBackground staticPage'}>
                 <Helmet>
-                    <title>{'cBioPortal for Cancer Genomics::Helmet'}</title>
+                    <title>{'CCDI cBioPortal::Helmet'}</title>
                 </Helmet>
 
                 <h1>Web API</h1>

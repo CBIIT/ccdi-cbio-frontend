@@ -10,7 +10,7 @@ export default class Software extends React.Component<{}, {}> {
         return (
             <PageLayout className={'whiteBackground staticPage'}>
                 <Helmet>
-                    <title>{'cBioPortal for Cancer Genomics::Software'}</title>
+                    <title>{'CCDI cBioPortal::Software'}</title>
                 </Helmet>
                 <StaticContent
                     sourceUrl={getServerConfig().skin_documentation_software!}

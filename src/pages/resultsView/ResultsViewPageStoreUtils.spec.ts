@@ -1204,28 +1204,26 @@ describe('ResultsViewPageStoreUtils', () => {
             let studies = [{ name: 'Study Number One' } as CancerStudy];
             let ret = buildResultsViewPageTitle(genes, studies);
             let expectedResult =
-                'cBioPortal for Cancer Genomics: KRAS, NRAS and 1 other gene in Study Number One';
+                'CCDI cBioPortal: KRAS, NRAS and 1 other gene in Study Number One';
             assert.equal(ret, expectedResult, 'three genes, one study');
 
             genes = ['KRAS', 'NRAS', 'BRAF', 'KFED'];
             studies = [{ name: 'Study Number One' } as CancerStudy];
             ret = buildResultsViewPageTitle(genes, studies);
             expectedResult =
-                'cBioPortal for Cancer Genomics: KRAS, NRAS and 2 other genes in Study Number One';
+                'CCDI cBioPortal: KRAS, NRAS and 2 other genes in Study Number One';
             assert.equal(ret, expectedResult, 'two genes, one study');
 
             genes = ['KRAS', 'NRAS'];
             studies = [{ name: 'Study Number One' } as CancerStudy];
             ret = buildResultsViewPageTitle(genes, studies);
-            expectedResult =
-                'cBioPortal for Cancer Genomics: KRAS, NRAS in Study Number One';
+            expectedResult = 'CCDI cBioPortal: KRAS, NRAS in Study Number One';
             assert.equal(ret, expectedResult, 'two genes, one study');
 
             genes = ['KRAS'];
             studies = [{ name: 'Study Number One' } as CancerStudy];
             ret = buildResultsViewPageTitle(genes, studies);
-            expectedResult =
-                'cBioPortal for Cancer Genomics: KRAS in Study Number One';
+            expectedResult = 'CCDI cBioPortal: KRAS in Study Number One';
             assert.equal(ret, expectedResult, 'one gene, one study');
 
             genes = ['KRAS'];
@@ -1235,7 +1233,7 @@ describe('ResultsViewPageStoreUtils', () => {
             ];
             ret = buildResultsViewPageTitle(genes, studies);
             expectedResult =
-                'cBioPortal for Cancer Genomics: KRAS in Study Number One and 1 other study';
+                'CCDI cBioPortal: KRAS in Study Number One and 1 other study';
             assert.equal(ret, expectedResult, 'one gene two studies');
 
             genes = ['KRAS'];
@@ -1246,7 +1244,7 @@ describe('ResultsViewPageStoreUtils', () => {
             ];
             ret = buildResultsViewPageTitle(genes, studies);
             expectedResult =
-                'cBioPortal for Cancer Genomics: KRAS in Study Number One and 2 other studies';
+                'CCDI cBioPortal: KRAS in Study Number One and 2 other studies';
             assert.equal(ret, expectedResult, 'one gene, three studies');
         });
     });

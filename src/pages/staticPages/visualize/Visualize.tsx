@@ -65,9 +65,7 @@ export default class Visualize extends React.Component<{}, {}> {
         return (
             <PageLayout className={'whiteBackground staticPage'}>
                 <Helmet>
-                    <title>
-                        {'cBioPortal for Cancer Genomics::Visualize Your Data'}
-                    </title>
+                    <title>{'CCDI cBioPortal::Visualize Your Data'}</title>
                 </Helmet>
 
                 <h1>Visualize Your Data</h1>

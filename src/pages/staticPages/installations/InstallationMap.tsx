@@ -13,9 +13,7 @@ export default class InstallationMap extends React.Component<{}, {}> {
                 hideFooter={true}
             >
                 <Helmet>
-                    <title>
-                        {'cBioPortal for Cancer Genomics::Installation Map'}
-                    </title>
+                    <title>{'CCDI cBioPortal::Installation Map'}</title>
                 </Helmet>
                 <iframe
                     frameBorder="0"

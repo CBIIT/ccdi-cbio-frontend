@@ -89,9 +89,7 @@ export default class MutationMapperTool extends React.Component<
         return (
             <PageLayout className={'whiteBackground staticPage'}>
                 <Helmet>
-                    <title>
-                        {'cBioPortal for Cancer Genomics::MutationMapper'}
-                    </title>
+                    <title>{'CCDI cBioPortal::MutationMapper'}</title>
                 </Helmet>
                 <div className="cbioportal-frontend">
                     <h1 style={{ display: 'inline' }}>MutationMapper</h1>{' '}
