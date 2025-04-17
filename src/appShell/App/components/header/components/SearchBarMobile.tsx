@@ -113,8 +113,8 @@ const SearchBar = () => {
         <SearchBarContainer>
             <div className="searchBar">
                 <label>
-                    {/* @ts-ignore */}
                     <SearchInput
+                        // @ts-ignore
                         id="header-search-bar"
                         type="search"
                         value={localText}

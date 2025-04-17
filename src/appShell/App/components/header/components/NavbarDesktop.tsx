@@ -419,10 +419,10 @@ const NavBar = () => {
             >
                 <DropdownContainer>
                     <div className="dropdownList">
-                        {// @ts-ignore
-                        clickedTitle !== ''
-                            ? navbarSublists[clickedTitle].map(
-                                  (dropItem, idx) => {
+                        {clickedTitle !== ''
+                            ? // @ts-ignore
+                              navbarSublists[clickedTitle].map(
+                                  (dropItem: any, idx: number) => {
                                       const dropkey = `drop_${idx}`;
                                       return (
                                           dropItem.link && (
