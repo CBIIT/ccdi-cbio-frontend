@@ -8,6 +8,8 @@ import { syncHistoryWithStore } from 'mobx-react-router';
 import ExtendedRoutingStore from './shared/lib/ExtendedRouterStore';
 import { datadogLogs } from '@datadog/browser-logs';
 
+import ScrollButton from './appShell/App/components/scrollButton/ScrollButtonView';
+
 import {
     fetchServerConfig,
     getLoadConfig,
@@ -312,6 +314,7 @@ let render = (key?: number) => {
             <Router history={syncedHistory}>
                 {/*@ts-ignore*/}
                 <Container location={routingStore.location} />
+                <ScrollButton />
             </Router>
         </Provider>,
         rootNode
@@ -340,6 +343,7 @@ async function loadCustomJs() {
                         if (err) {
                             reject(err);
                         } else {
+                            // @ts-ignore
                             resolve();
                         }
                     });

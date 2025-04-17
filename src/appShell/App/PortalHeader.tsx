@@ -13,6 +13,8 @@ import { Dropdown } from 'react-bootstrap';
 import { DataAccessTokensDropdown } from '../../shared/components/dataAccessTokens/DataAccessTokensDropdown';
 import { getLoadConfig, getServerConfig } from 'config/config';
 
+import Header from './components/header';
+
 @observer
 export default class PortalHeader extends React.Component<
     { appStore: AppStore },
@@ -20,6 +22,13 @@ export default class PortalHeader extends React.Component<
 > {
     private tabs() {
         return [
+            {
+                id: 'navbar-link-back-to-ccdi-hub',
+                text: 'Back to CCDI Hub',
+                address: 'https://ccdi.cancer.gov/home',
+                internal: false,
+                hide: () => false,
+            },
             {
                 id: 'datasets',
                 text: 'Data Sets',
@@ -126,75 +135,76 @@ export default class PortalHeader extends React.Component<
 
     render() {
         return (
-            <header>
-                <div id="leftHeaderContent">
-                    <Link to="/" id="cbioportal-logo">
-                        <img
-                            src={
-                                !!getcBioPortalLogoUrl()
-                                    ? getcBioPortalLogoUrl()
-                                    : require('../../globalStyles/images/cbioportal_logo.png')
-                            }
-                            alt="cBioPortal Logo"
-                        />
-                    </Link>
-                    <nav id="main-nav">
-                        <ul>{this.getTabs()}</ul>
-                    </nav>
-                </div>
-                <div id="rightHeaderContent">
-                    <If
-                        condition={
-                            !getLoadConfig().hide_login &&
-                            !getServerConfig().skin_hide_logout_button
-                        }
-                    >
-                        <If condition={this.props.appStore.isLoggedIn}>
-                            <Then>
-                                <div className="identity">
-                                    <Dropdown id="dat-dropdown">
-                                        <Dropdown.Toggle className="btn-sm">
-                                            Logged in as{' '}
-                                            {this.props.appStore.userName}
-                                        </Dropdown.Toggle>
-                                        <Dropdown.Menu
-                                            style={{
-                                                paddingLeft: 10,
-                                                overflow: 'auto',
-                                                maxHeight: 300,
-                                                whiteSpace: 'nowrap',
-                                            }}
-                                        >
-                                            <DataAccessTokensDropdown
-                                                appStore={this.props.appStore}
-                                            />
-                                        </Dropdown.Menu>
-                                    </Dropdown>
-                                </div>
-                            </Then>
-                            <Else>
-                                <If
-                                    condition={
-                                        this.props.appStore
-                                            .isSocialAuthenticated
-                                    }
-                                >
-                                    <SocialAuthButton
-                                        appStore={this.props.appStore}
-                                    />
-                                </If>
-                            </Else>
-                        </If>
-                    </If>
-                    <If condition={!!getInstituteLogoUrl()}>
-                        <img
-                            id="institute-logo"
-                            src={getInstituteLogoUrl()!}
-                            alt="Institute Logo"
-                        />
-                    </If>
-                </div>
-            </header>
+            <Header />
+            // <header>
+            //     <div id="leftHeaderContent">
+            //         <Link to="/" id="cbioportal-logo">
+            //             <img
+            //                 src={
+            //                     !!getcBioPortalLogoUrl()
+            //                         ? getcBioPortalLogoUrl()
+            //                         : require('../../globalStyles/images/cbioportal_logo.png')
+            //                 }
+            //                 alt="cBioPortal Logo"
+            //             />
+            //         </Link>
+            //         <nav id="main-nav">
+            //             <ul>{this.getTabs()}</ul>
+            //         </nav>
+            //     </div>
+            //     <div id="rightHeaderContent">
+            //         <If
+            //             condition={
+            //                 !getLoadConfig().hide_login &&
+            //                 !getServerConfig().skin_hide_logout_button
+            //             }
+            //         >
+            //             <If condition={this.props.appStore.isLoggedIn}>
+            //                 <Then>
+            //                     <div className="identity">
+            //                         <Dropdown id="dat-dropdown">
+            //                             <Dropdown.Toggle className="btn-sm">
+            //                                 Logged in as{' '}
+            //                                 {this.props.appStore.userName}
+            //                             </Dropdown.Toggle>
+            //                             <Dropdown.Menu
+            //                                 style={{
+            //                                     paddingLeft: 10,
+            //                                     overflow: 'auto',
+            //                                     maxHeight: 300,
+            //                                     whiteSpace: 'nowrap',
+            //                                 }}
+            //                             >
+            //                                 <DataAccessTokensDropdown
+            //                                     appStore={this.props.appStore}
+            //                                 />
+            //                             </Dropdown.Menu>
+            //                         </Dropdown>
+            //                     </div>
+            //                 </Then>
+            //                 <Else>
+            //                     <If
+            //                         condition={
+            //                             this.props.appStore
+            //                                 .isSocialAuthenticated
+            //                         }
+            //                     >
+            //                         <SocialAuthButton
+            //                             appStore={this.props.appStore}
+            //                         />
+            //                     </If>
+            //                 </Else>
+            //             </If>
+            //         </If>
+            //         <If condition={!!getInstituteLogoUrl()}>
+            //             <img
+            //                 id="institute-logo"
+            //                 src={getInstituteLogoUrl()!}
+            //                 alt="Institute Logo"
+            //             />
+            //         </If>
+            //     </div>
+            // </header>
         );
     }
 }

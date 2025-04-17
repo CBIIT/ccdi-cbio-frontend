@@ -36,9 +36,10 @@ export class PageLayout extends React.Component<IPageLayout, {}> {
                     )}
                 </div>
 
-                {!this.props.hideFooter && (
+                {/* {!this.props.hideFooter && (
                     <PortalFooter appStore={this.props.appStore!} />
-                )}
+                )} */}
+                <PortalFooter appStore={this.props.appStore!} />
             </div>
         );
     }
