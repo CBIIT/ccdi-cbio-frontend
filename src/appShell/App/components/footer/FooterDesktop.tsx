@@ -40,6 +40,12 @@ const FooterEmailSignupContainer = styled.form`
         margin-bottom: 10px;
     }
 
+    .enterTitle label {
+        display: block;
+        margin-bottom: 0;
+        font-weight: 400;
+    }
+
     .signUpInputBox {
         width: 100%;
         height: 47px;
