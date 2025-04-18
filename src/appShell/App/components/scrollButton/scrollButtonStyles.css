@@ -42,7 +42,7 @@
 }
 
 /*
-Tablet/Phone less than 768px width and greater than 375
+    Tablet/Phone less than 768px width and greater than 375
 */
 @media (max-width: 907px) {
     #stt-span {

@@ -30,7 +30,8 @@ const Header = () => {
     const path = useLocation().pathname;
 
     return (
-        <HeaderBanner>
+        // @ts-ignore
+        <HeaderBanner role="banner">
             <HeaderContainer>
                 <Logo />
                 <div className="headerLowerContainer">

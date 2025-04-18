@@ -312,7 +312,7 @@ let render = (key?: number) => {
     ReactDOM.render(
         <Provider {...stores}>
             <Router history={syncedHistory}>
-                {/*@ts-ignore*/}
+                {/* @ts-ignore */}
                 <Container location={routingStore.location} />
                 <ScrollButton />
             </Router>
