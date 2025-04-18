@@ -29,7 +29,7 @@ export const DataTypeFilter: FunctionComponent<IDataTypeFilterProps> = props => 
                 <Dropdown id="dropdown-study-data-filter">
                     <Dropdown.Toggle
                         {...({
-                            rootCloseEvent: 'click',
+                            rootcloseevent: 'click',
                         } as DropdownToggleProps)}
                         className="btn-sm"
                         style={{

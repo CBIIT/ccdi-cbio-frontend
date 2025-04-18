@@ -105,7 +105,7 @@ export default class QueryAndDownloadTabs extends React.Component<
     render() {
         return (
             <div className={styles.QueryAndDownloadTabs}>
-                <If condition={getServerConfig().skin_citation_rule_text}>
+                <If condition={!!getServerConfig().skin_citation_rule_text}>
                     <div
                         className="citationRule"
                         dangerouslySetInnerHTML={{
