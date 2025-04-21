@@ -20,6 +20,7 @@ export function loadCustomTabDeps(tab: any) {
                     if (err) {
                         reject(err);
                     } else {
+                        // @ts-ignore
                         resolve();
                     }
                 });

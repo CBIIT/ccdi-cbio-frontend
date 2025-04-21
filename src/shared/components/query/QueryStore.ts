@@ -743,10 +743,12 @@ export class QueryStore {
                                 if (_.isEmpty(unKnownPhysicalStudyIds)) {
                                     result[id] = ids;
                                 }
+                                // @ts-ignore
                                 resolve();
                             })
                             .catch(() => {
                                 //error is thrown when the id is not found
+                                // @ts-ignore
                                 resolve();
                             });
                     });
@@ -887,10 +889,12 @@ export class QueryStore {
                                 if (unKnownPhysicalStudyIds.length === 0) {
                                     result[id] = virtualStudy;
                                 }
+                                // @ts-ignore
                                 resolve();
                             })
                             .catch(() => {
                                 //error is thrown when the id is not found
+                                // @ts-ignore
                                 resolve();
                             });
                     });

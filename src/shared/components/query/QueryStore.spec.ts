@@ -80,6 +80,7 @@ describe('QueryStore', () => {
                 'deleteVirtualStudy'
             ).callsFake(function fakeFn(id: string) {
                 return new Promise((resolve, reject) => {
+                    // @ts-ignore
                     resolve();
                 });
             });
@@ -88,6 +89,7 @@ describe('QueryStore', () => {
                 'addVirtualStudy'
             ).callsFake(function fakeFn(id: string) {
                 return new Promise((resolve, reject) => {
+                    // @ts-ignore
                     resolve();
                 });
             });

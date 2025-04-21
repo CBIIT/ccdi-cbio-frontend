@@ -13,6 +13,7 @@ export function sleepUntil(
             timeElapsed += intervalMs;
             if (predicate()) {
                 clearInterval(interval);
+                // @ts-ignore
                 resolve();
             } else if (timeElapsed > timeoutMs) {
                 clearInterval(interval);
