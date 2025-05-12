@@ -22,6 +22,7 @@ const FooterContainer = styled.div`
 
 const FooterEmailSignupContainer = styled.form`
     width: 33.3%;
+
     .signUpTitle {
         font-family: poppins;
         font-weight: 700;

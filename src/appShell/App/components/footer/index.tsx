@@ -5,6 +5,8 @@ import FooterTablet from './FooterTablet';
 import FooterMobile from './FooterMobile';
 
 const FooterContainer = styled.div`
+    min-width: 1200px;
+
     @media (min-width: 1024px) {
         .desktop {
             display: block;

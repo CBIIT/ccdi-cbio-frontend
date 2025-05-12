@@ -20,6 +20,7 @@ const FooterContainer = styled.div`
 
 const FooterEmailSignupContainer = styled.form`
     padding: 1rem 1rem 2rem 1rem;
+
     .signUpTitle {
         font-family: poppins;
         font-weight: 700;
@@ -88,6 +89,7 @@ const FooterEmailSignupContainer = styled.form`
 const FooterLinksContainer = styled.div`
     display: flex;
     flex-direction: column;
+
     .footItem {
         width: 253px;
     }
@@ -164,6 +166,7 @@ const FooterLinksContainer = styled.div`
     .arrow {
         margin-right: 0.25rem;
     }
+
     .rotate {
         transform: rotate(90deg);
     }
