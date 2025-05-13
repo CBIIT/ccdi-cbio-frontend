@@ -319,7 +319,7 @@ export default class CancerStudySelector extends React.Component<
                             let searchTimeout: number | null = null;
 
                             return (
-                                <div>
+                                <div style={{ zIndex: 1 }}>
                                     <div
                                         data-tour="data-type-filter"
                                         data-test="data-type-filter-test"

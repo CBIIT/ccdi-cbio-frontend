@@ -222,6 +222,7 @@ const DropdownContainer = styled.div`
     }
 
     .dropdownItem:hover {
+        color: #ffffff;
         text-decoration: underline;
     }
 
