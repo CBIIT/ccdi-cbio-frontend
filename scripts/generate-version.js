@@ -16,7 +16,7 @@ try {
     const version = match ? match[1].trim() : 'unknown';
     const data = { version };
 
-    const outFile = path.join(path.join(__dirname, '..'), 'version.json');
+    const outFile = path.join(__dirname, '..', 'version.json');
     fs.writeFileSync(outFile, JSON.stringify(data, null, 2));
 } catch (error) {
     console.error('Error retrieving CBIOPORTAL_VERSION:', error);
