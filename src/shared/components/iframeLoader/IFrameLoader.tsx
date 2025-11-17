@@ -11,6 +11,7 @@ interface FrameLoaderProps {
     iframeId?: string;
     height?: number | string;
     width?: number | string;
+    includeCcdiLinks?: boolean;
 }
 @observer
 export default class IFrameLoader extends React.Component<
@@ -46,7 +47,9 @@ export default class IFrameLoader extends React.Component<
                 <LoadingIndicator
                     center={true}
                     size={'big'}
-                    isLoading={!this.iframeLoaded}
+                    isLoading={
+                        !this.iframeLoaded && !this.props.includeCcdiLinks
+                    }
                 />
                 <a
                     href={this.props.url}
@@ -60,21 +63,23 @@ export default class IFrameLoader extends React.Component<
                 >
                     Open in new window <FontAwesome name="external-link" />
                 </a>
-                <iframe
-                    id={this.props.iframeId || ''}
-                    className={this.props.className || ''}
-                    style={{
-                        width: '100%',
-                        position: 'relative',
-                        zIndex: 100,
-                        height: this.props.height,
-                        border: 'none',
-                        marginTop: 5,
-                    }}
-                    src={this.props.url}
-                    onLoad={this.onLoad}
-                    allowFullScreen={true}
-                ></iframe>
+                {!this.props.includeCcdiLinks && (
+                    <iframe
+                        id={this.props.iframeId || ''}
+                        className={this.props.className || ''}
+                        style={{
+                            width: '100%',
+                            position: 'relative',
+                            zIndex: 100,
+                            height: this.props.height,
+                            border: 'none',
+                            marginTop: 5,
+                        }}
+                        src={this.props.url}
+                        onLoad={this.onLoad}
+                        allowFullScreen={true}
+                    ></iframe>
+                )}
             </div>
         );
     }
