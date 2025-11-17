@@ -181,6 +181,7 @@ export default class ResourceTab extends React.Component<
                             url={this.iframeUrl}
                             height={this.iframeHeight}
                             width={'100%'}
+                            includeCcdiLinks={this.includeCcdiLinks}
                         />
                     )}
                     {multipleData && (

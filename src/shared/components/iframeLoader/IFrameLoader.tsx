@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ThreeBounce } from 'better-react-spinkit';
 import LoadingIndicator from '../loadingIndicator/LoadingIndicator';
 import { observer } from 'mobx-react';
-import { computed, makeObservable, observable } from 'mobx';
+import { makeObservable, observable } from 'mobx';
 import autobind from 'autobind-decorator';
 import FontAwesome from 'react-fontawesome';
 interface FrameLoaderProps {
@@ -11,6 +11,7 @@ interface FrameLoaderProps {
     iframeId?: string;
     height?: number | string;
     width?: number | string;
+    includeCcdiLinks?: boolean;
 }
 @observer
 export default class IFrameLoader extends React.Component<
@@ -33,16 +34,6 @@ export default class IFrameLoader extends React.Component<
         this.iframeLoaded = true;
     }
 
-    @computed get includeCcdiLinks() {
-        // Matches ccdi.cancer.gov with optional subdomains, case-insensitive
-        const re = /^(https?:\/\/)?([\w-]+\.)*ccdi\.cancer\.gov(\/|$)/i;
-        try {
-            return re.test(this.props.url);
-        } catch {
-            return false;
-        }
-    }
-
     //NOTE: we need zindex to be higher than that of global loader
     render() {
         return (
@@ -56,7 +47,9 @@ export default class IFrameLoader extends React.Component<
                 <LoadingIndicator
                     center={true}
                     size={'big'}
-                    isLoading={!this.iframeLoaded && !this.includeCcdiLinks}
+                    isLoading={
+                        !this.iframeLoaded && !this.props.includeCcdiLinks
+                    }
                 />
                 <a
                     href={this.props.url}
@@ -70,7 +63,7 @@ export default class IFrameLoader extends React.Component<
                 >
                     Open in new window <FontAwesome name="external-link" />
                 </a>
-                {!this.includeCcdiLinks && (
+                {!this.props.includeCcdiLinks && (
                     <iframe
                         id={this.props.iframeId || ''}
                         className={this.props.className || ''}
