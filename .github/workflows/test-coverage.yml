@@ -25,10 +25,10 @@ jobs:
         run: npm install yarn@1.22.5 --legacy-peer-deps
         
       - name: Install dependencies
-        run: npm install --frozen-lockfile --legacy-peer-deps
+        run: yarn install --frozen-lockfile --legacy-peer-deps
       
       - name: Run tests
-        run: npm run testMain 
+        run: yarn run testMain 
       
       - name: Coveralls
         uses: coverallsapp/github-action@v2
