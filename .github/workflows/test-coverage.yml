@@ -22,9 +22,6 @@ jobs:
         with:
           node-version: '15.2.1'
       
-      - name: Install Yarn
-        run: npm install yarn@1.22.5 --legacy-peer-deps
-      
       - name: Install dependencies
         run: npm install --frozen-lockfile --legacy-peer-deps
       
