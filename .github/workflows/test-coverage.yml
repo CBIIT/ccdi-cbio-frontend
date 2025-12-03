@@ -31,7 +31,9 @@ jobs:
 
       - name: Run tests
         run: yarn run testMain 
-      
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
+
       - name: Coveralls
         uses: coverallsapp/github-action@v2
         continue-on-error: true
