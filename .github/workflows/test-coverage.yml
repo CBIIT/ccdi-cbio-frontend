@@ -22,11 +22,13 @@ jobs:
         with:
           node-version: '15.2.1'
       - name: Install Yarn
-        run: npm install yarn@1.22.5 --legacy-peer-deps
+        run: npm install -g yarn@1.22.5 
         
       - name: Install dependencies
         run: yarn install --frozen-lockfile --legacy-peer-deps
-      
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
+
       - name: Run tests
         run: yarn run testMain 
       
