@@ -78,7 +78,10 @@ export default class Visualize extends React.Component<{}, {}> {
                 <ul>
                     <li>
                         The source code of cBioPortal is available on{' '}
-                        <a href="https://github.com/cBioPortal/cbioportal">
+                        <a
+                            href="https://github.com/cBioPortal/cbioportal"
+                            target="_blank"
+                        >
                             GitHub
                         </a>{' '}
                         under the terms of Affero GPL V3.

@@ -15,6 +15,15 @@ interface IPageLayout {
 
 @inject('appStore')
 export class PageLayout extends React.Component<IPageLayout, {}> {
+    // CCDI-TODO: Make the iframe height fit for the content
+    setHeight() {
+        const height = document.querySelectorAll('.cbioportal-frontend')[0]
+            .scrollHeight;
+        window.parent.postMessage(['setHeight', height], '*');
+    }
+    componentDidUpdate() {
+        setTimeout(this.setHeight, 3000);
+    }
     render() {
         const noMargin = this.props.noMargin ? 'noMargin' : '';
 
@@ -35,11 +44,11 @@ export class PageLayout extends React.Component<IPageLayout, {}> {
                     )}
                 </div>
 
-                {!this.props.hideFooter && (
+                {/* {!this.props.hideFooter && (
                     <PortalFooter appStore={this.props.appStore!} />
                 )}
 
-                {localStorage.rfc80 && <RFC80Test />}
+                {localStorage.rfc80 && <RFC80Test />} */}
             </div>
         );
     }

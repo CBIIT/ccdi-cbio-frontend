@@ -110,6 +110,16 @@ export default class ResourceTab extends React.Component<
         return url;
     }
 
+    @computed get includeCcdiLinks() {
+        // Matches ccdi.cancer.gov with optional subdomains, case-insensitive
+        const re = /^(https?:\/\/)?([\w-]+\.)*ccdi\.cancer\.gov(\/|$)/i;
+        try {
+            return re.test(this.iframeUrl);
+        } catch {
+            return false;
+        }
+    }
+
     render() {
         const multipleData = this.props.resourceData.length > 1;
 
@@ -137,7 +147,7 @@ export default class ResourceTab extends React.Component<
                 <div
                     style={{
                         width: '100%',
-                        height: this.iframeHeight,
+                        height: this.includeCcdiLinks ? 0 : this.iframeHeight,
                         display: 'flex',
                         alignItems: 'center',
                     }}
@@ -171,6 +181,7 @@ export default class ResourceTab extends React.Component<
                             url={this.iframeUrl}
                             height={this.iframeHeight}
                             width={'100%'}
+                            includeCcdiLinks={this.includeCcdiLinks}
                         />
                     )}
                     {multipleData && (

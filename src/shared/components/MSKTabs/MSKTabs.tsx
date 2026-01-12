@@ -194,6 +194,13 @@ export class MSKTabs extends React.Component<IMSKTabsProps> {
         this.currentPage -= 1;
     }
 
+    setUrl() {
+        window.parent.postMessage(
+            ['setUrl', window.location.pathname + window.location.search],
+            '*'
+        );
+    }
+
     render() {
         if (this.props.children && React.Children.count(this.props.children)) {
             let children = this.props.children as React.ReactElement<
@@ -491,6 +498,7 @@ export class MSKTabs extends React.Component<IMSKTabsProps> {
     }
 
     componentDidUpdate() {
+        this.setUrl();
         // recompute pagination and paginate to current tab
         if (this.needToRecomputeNavTabWidths) {
             this.computeNavTabWidths();

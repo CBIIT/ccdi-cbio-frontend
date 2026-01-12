@@ -48,13 +48,15 @@ export function buildCBioPortalPageUrl(params: BuildUrlParams): string;
 export function buildCBioPortalPageUrl(
     pathname: string,
     query?: QueryParams,
-    hash?: string
+    hash?: string,
+    isMainUrl?: boolean
 ): string;
 export function buildCBioPortalPageUrl(
     pathnameOrParams: string | BuildUrlParams,
     query?: QueryParams,
-    hash?: string
-) {
+    hash?: string,
+    isMainUrl: boolean = true
+): string {
     let params: BuildUrlParams =
         typeof pathnameOrParams === 'string'
             ? { pathname: pathnameOrParams, query, hash }
@@ -65,7 +67,11 @@ export function buildCBioPortalPageUrl(
         protocol: window.location.protocol,
         host:
             getLoadConfig().baseUrl ||
-            getLoadConfig().frontendUrl?.slice(2, -1),
+            // getLoadConfig().frontendUrl?.slice(2, -1),
+            (isMainUrl
+                ? // @ts-expect-error: ENV_* are defined in webpack.config.js
+                  ENV_CCDI_CBIO_SITE_URL.split('//')[1]
+                : getLoadConfig().frontendUrl?.slice(2, -1)),
         ...params,
     });
 }
@@ -145,7 +151,12 @@ export function getResourceViewUrlWithPathname(
     patientId: string
 ) {
     let caseId: string = `${patientId}`;
-    return buildCBioPortalPageUrl(pathname, { studyId, caseId });
+    return buildCBioPortalPageUrl(
+        pathname,
+        { studyId, caseId },
+        undefined,
+        false
+    );
 }
 
 export function getPatientViewUrl(
@@ -193,7 +204,12 @@ export function redirectToComparisonPage(
 export function getComparisonLoadingUrl(
     params?: Partial<GroupComparisonLoadingParams>
 ) {
-    return buildCBioPortalPageUrl('/loading/comparison', params || {});
+    return buildCBioPortalPageUrl(
+        '/loading/comparison',
+        params || {},
+        '',
+        false
+    );
 }
 
 export function getPubMedUrl(pmid: string) {
