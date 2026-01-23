@@ -348,7 +348,8 @@ export function getStudyDownloadListUrl() {
 
 export function getStudyDownloadUrl(study_id: string) {
     if (getServerConfig().feature_study_export) {
-        return '/export/study/' + study_id + '.zip';
+        // @ts-ignore: ENV_* are defined in webpack.config.js
+        return `${ENV_CBIOPORTAL_URL}/export/study/` + study_id + '.zip';
     }
     return getServerConfig().study_download_url + study_id + '.tar.gz';
 }
