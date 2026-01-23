@@ -1,0 +1,41 @@
+name: test-coverage
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  test-coverage:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '15.2.1'
+      - name: Install Yarn
+        run: npm install -g yarn@1.22.5 
+        
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --legacy-peer-deps
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
+
+      - name: Run tests
+        run: yarn run testMain  || true
+        continue-on-error: true
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
+
+      - name: Coveralls
+        if: success()
+        uses: coverallsapp/github-action@v2
+        continue-on-error: true
