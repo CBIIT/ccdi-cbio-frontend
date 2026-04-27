@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import { buildCBioPortalPageUrl } from '../../../shared/api/urls';
+import { buildCBioPortalPageUrl } from '../../api/urls';
 
 type StudyLinkProps = {
     studyId: string;
@@ -32,13 +32,17 @@ class StudyLinkComponent extends React.Component<
         const absoluteStudyUrl = buildCBioPortalPageUrl('study', {
             id: this.props.studyId,
         });
+        const anchorAriaLabel =
+            this.props.studyName && !this.props.children
+                ? `Open the study summary page for ${this.props.studyName}.`
+                : undefined;
 
         return (
             <a
                 href={absoluteStudyUrl}
                 className={this.props.className}
                 onClick={this.handleClick}
-                aria-label={`Open the study summary page for ${this.props.studyName} in a new tab`}
+                aria-label={anchorAriaLabel}
             >
                 {this.props.children}
             </a>
