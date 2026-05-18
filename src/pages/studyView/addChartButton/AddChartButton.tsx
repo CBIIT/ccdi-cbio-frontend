@@ -927,12 +927,12 @@ class AddChartTabs extends React.Component<IAddChartTabsProps, {}> {
                             </div>
                         )}
                     </MSKTab>
-                    {/* Set hide to true temporarily. Re-enable when ready. (hide={this.props.disableCustomTab}) */}
-                    <MSKTab
+                    {/* TODO: Uncomment when authentication & authorization is ready. */}
+                    {/* <MSKTab
                         key={3}
                         id={ChartMetaDataTypeEnum.CUSTOM_DATA}
                         linkText={TabNamesEnum.CUSTOM_DATA}
-                        hide={true}
+                        hide={this.props.disableCustomTab}
                         className="custom"
                     >
                         <div
@@ -1090,7 +1090,7 @@ class AddChartTabs extends React.Component<IAddChartTabsProps, {}> {
                                 </div>
                             )}
                         </div>
-                    </MSKTab>
+                    </MSKTab> */}
                     {!this.props.disableVariantAnnotationsTab &&
                         this.variantAnnotationsTab}
                     <MSKTab
