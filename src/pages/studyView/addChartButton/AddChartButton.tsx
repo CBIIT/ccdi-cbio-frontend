@@ -932,11 +932,7 @@ class AddChartTabs extends React.Component<IAddChartTabsProps, {}> {
                         key={3}
                         id={ChartMetaDataTypeEnum.CUSTOM_DATA}
                         linkText={TabNamesEnum.CUSTOM_DATA}
-                        hide={
-                            !!this.props.disableCustomTab ||
-                            this.props.defaultActiveTab !==
-                                ChartMetaDataTypeEnum.CUSTOM_DATA
-                        }
+                        hide={true}
                         className="custom"
                     >
                         <div
