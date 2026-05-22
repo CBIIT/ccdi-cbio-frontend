@@ -328,8 +328,8 @@ export default class StudyViewPage extends React.Component<
         const groupIds = groups.map(group => group.uid);
         this.getShareBookmarkUrl = Promise.resolve({
             bitlyUrl: undefined,
-            // @ts-expect-error: ENV_* are defined in webpack.config.js
             fullUrl: `${window.location.protocol}//${
+                // @ts-expect-error: ENV_* are defined in webpack.config.js
                 ENV_CCDI_CBIO_SITE_URL.split('//')[1]
             }${window.location.pathname}${
                 window.location.search
@@ -343,8 +343,8 @@ export default class StudyViewPage extends React.Component<
         this.shareCustomDataLinkModal = true;
         this.getShareCustomChartBookmarkUrl = Promise.resolve({
             bitlyUrl: undefined,
-            // @ts-expect-error: ENV_* are defined in webpack.config.js
             fullUrl: `${window.location.protocol}//${
+                // @ts-expect-error: ENV_* are defined in webpack.config.js
                 ENV_CCDI_CBIO_SITE_URL.split('//')[1]
             }${window.location.pathname}${
                 window.location.search
