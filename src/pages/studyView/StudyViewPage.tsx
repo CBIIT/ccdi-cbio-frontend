@@ -407,8 +407,8 @@ export default class StudyViewPage extends React.Component<
     }
 
     @computed get studyViewFullUrlWithFilter() {
-        // @ts-expect-error: ENV_* are defined in webpack.config.js
         return `${window.location.protocol}//${
+            // @ts-expect-error: ENV_* are defined in webpack.config.js
             ENV_CCDI_CBIO_SITE_URL.split('//')[1]
         }${window.location.pathname}${
             window.location.search
