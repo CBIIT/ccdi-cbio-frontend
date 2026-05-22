@@ -328,9 +328,12 @@ export default class StudyViewPage extends React.Component<
         const groupIds = groups.map(group => group.uid);
         this.getShareBookmarkUrl = Promise.resolve({
             bitlyUrl: undefined,
-            fullUrl: `${window.location.protocol}//${window.location.host}${
-                window.location.pathname
-            }${window.location.search}#sharedGroups=${groupIds.join(',')}`,
+            // @ts-expect-error: ENV_* are defined in webpack.config.js
+            fullUrl: `${window.location.protocol}//${
+                ENV_CCDI_CBIO_SITE_URL.split('//')[1]
+            }${window.location.pathname}${
+                window.location.search
+            }#sharedGroups=${groupIds.join(',')}`,
             sessionUrl: undefined,
         });
     }
@@ -340,11 +343,12 @@ export default class StudyViewPage extends React.Component<
         this.shareCustomDataLinkModal = true;
         this.getShareCustomChartBookmarkUrl = Promise.resolve({
             bitlyUrl: undefined,
-            fullUrl: `${window.location.protocol}//${window.location.host}${
-                window.location.pathname
-            }${window.location.search}#sharedCustomData=${customDataIds.join(
-                ','
-            )}`,
+            // @ts-expect-error: ENV_* are defined in webpack.config.js
+            fullUrl: `${window.location.protocol}//${
+                ENV_CCDI_CBIO_SITE_URL.split('//')[1]
+            }${window.location.pathname}${
+                window.location.search
+            }#sharedCustomData=${customDataIds.join(',')}`,
             sessionUrl: undefined,
         });
     }
@@ -403,11 +407,12 @@ export default class StudyViewPage extends React.Component<
     }
 
     @computed get studyViewFullUrlWithFilter() {
-        return `${window.location.protocol}//${window.location.host}${
-            window.location.pathname
-        }${window.location.search}#filterJson=${JSON.stringify(
-            this.store.filters
-        )}`;
+        // @ts-expect-error: ENV_* are defined in webpack.config.js
+        return `${window.location.protocol}//${
+            ENV_CCDI_CBIO_SITE_URL.split('//')[1]
+        }${window.location.pathname}${
+            window.location.search
+        }#filterJson=${JSON.stringify(this.store.filters)}`;
     }
 
     async getBookmarkUrl(): Promise<ShareUrls> {
