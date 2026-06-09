@@ -196,7 +196,12 @@ export class MSKTabs extends React.Component<IMSKTabsProps> {
 
     setUrl() {
         window.parent.postMessage(
-            ['setUrl', window.location.pathname + window.location.search],
+            [
+                'setUrl',
+                window.location.pathname +
+                    window.location.search +
+                    window.location.hash,
+            ],
             '*'
         );
     }
