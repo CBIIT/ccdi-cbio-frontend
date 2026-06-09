@@ -328,9 +328,9 @@ export default class StudyViewPage extends React.Component<
         const groupIds = groups.map(group => group.uid);
         this.getShareBookmarkUrl = Promise.resolve({
             bitlyUrl: undefined,
-            fullUrl: `${window.location.protocol}//${
+            fullUrl: `${
                 // @ts-expect-error: ENV_* are defined in webpack.config.js
-                ENV_CCDI_CBIO_SITE_URL.split('//')[1]
+                ENV_CCDI_CBIO_SITE_URL
             }${window.location.pathname}${
                 window.location.search
             }#sharedGroups=${groupIds.join(',')}`,
@@ -343,9 +343,9 @@ export default class StudyViewPage extends React.Component<
         this.shareCustomDataLinkModal = true;
         this.getShareCustomChartBookmarkUrl = Promise.resolve({
             bitlyUrl: undefined,
-            fullUrl: `${window.location.protocol}//${
+            fullUrl: `${
                 // @ts-expect-error: ENV_* are defined in webpack.config.js
-                ENV_CCDI_CBIO_SITE_URL.split('//')[1]
+                ENV_CCDI_CBIO_SITE_URL
             }${window.location.pathname}${
                 window.location.search
             }#sharedCustomData=${customDataIds.join(',')}`,
@@ -407,9 +407,9 @@ export default class StudyViewPage extends React.Component<
     }
 
     @computed get studyViewFullUrlWithFilter() {
-        return `${window.location.protocol}//${
+        return `${
             // @ts-expect-error: ENV_* are defined in webpack.config.js
-            ENV_CCDI_CBIO_SITE_URL.split('//')[1]
+            ENV_CCDI_CBIO_SITE_URL
         }${window.location.pathname}${
             window.location.search
         }#filterJson=${JSON.stringify(this.store.filters)}`;
