@@ -78,7 +78,6 @@ import {
     prepareCustomTabConfigurations,
 } from 'shared/lib/customTabs/customTabHelpers';
 import { VirtualStudyModal } from 'pages/studyView/virtualStudy/VirtualStudyModal';
-import { buildStudyViewShareUrl } from './StudyViewShareUrl';
 import PlotsTab from 'shared/components/plots/PlotsTab';
 import { PlotsTabWrapper } from 'pages/studyView/StudyViewPlotsTabWrapper';
 
@@ -184,8 +183,6 @@ export default class StudyViewPage extends React.Component<
         ]);
 
         newStudyViewFilter.filterJson = query['filters'];
-        newStudyViewFilter.sharedGroups = query['sharedGroups'];
-        newStudyViewFilter.sharedCustomData = query['sharedCustomData'];
 
         let hashString: string = hash || getBrowserWindow().studyPageFilter;
         delete (window as any).studyPageFilter;
@@ -331,9 +328,12 @@ export default class StudyViewPage extends React.Component<
         const groupIds = groups.map(group => group.uid);
         this.getShareBookmarkUrl = Promise.resolve({
             bitlyUrl: undefined,
-            fullUrl: this.buildStudyViewShareUrl({
-                sharedGroups: groupIds.join(','),
-            }),
+            fullUrl: `${window.location.protocol}//${
+                // @ts-expect-error: ENV_* are defined in webpack.config.js
+                ENV_CCDI_CBIO_SITE_URL.split('//')[1]
+            }${window.location.pathname}${
+                window.location.search
+            }#sharedGroups=${groupIds.join(',')}`,
             sessionUrl: undefined,
         });
     }
@@ -343,9 +343,12 @@ export default class StudyViewPage extends React.Component<
         this.shareCustomDataLinkModal = true;
         this.getShareCustomChartBookmarkUrl = Promise.resolve({
             bitlyUrl: undefined,
-            fullUrl: this.buildStudyViewShareUrl({
-                sharedCustomData: customDataIds.join(','),
-            }),
+            fullUrl: `${window.location.protocol}//${
+                // @ts-expect-error: ENV_* are defined in webpack.config.js
+                ENV_CCDI_CBIO_SITE_URL.split('//')[1]
+            }${window.location.pathname}${
+                window.location.search
+            }#sharedCustomData=${customDataIds.join(',')}`,
             sessionUrl: undefined,
         });
     }
@@ -404,18 +407,12 @@ export default class StudyViewPage extends React.Component<
     }
 
     @computed get studyViewFullUrlWithFilter() {
-        return this.buildStudyViewShareUrl({
-            filters: JSON.stringify(this.store.filters),
-        });
-    }
-
-    private buildStudyViewShareUrl(queryParams: Record<string, string>) {
-        return buildStudyViewShareUrl(
+        return `${window.location.protocol}//${
             // @ts-expect-error: ENV_* are defined in webpack.config.js
-            ENV_CCDI_CBIO_SITE_URL,
-            window.location,
-            queryParams
-        );
+            ENV_CCDI_CBIO_SITE_URL.split('//')[1]
+        }${window.location.pathname}${
+            window.location.search
+        }#filterJson=${JSON.stringify(this.store.filters)}`;
     }
 
     async getBookmarkUrl(): Promise<ShareUrls> {

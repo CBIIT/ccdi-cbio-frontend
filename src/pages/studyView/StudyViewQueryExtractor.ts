@@ -83,15 +83,13 @@ export class StudyViewFilterQueryExtractor
     }
 
     parseRawFilterJson(filterJson: string): any {
+        let parsedJson;
         try {
-            return JSON.parse(filterJson);
+            parsedJson = JSON.parse(decodeURIComponent(filterJson));
         } catch (e) {
-            try {
-                return JSON.parse(decodeURIComponent(filterJson));
-            } catch (decodeError) {
-                console.error('FilterJson invalid Json: error: ', decodeError);
-            }
+            console.error('FilterJson invalid Json: error: ', e);
         }
+        return parsedJson;
     }
 
     getStudyViewFilterFromPatientIdentifierFilter(
