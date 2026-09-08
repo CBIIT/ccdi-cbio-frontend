@@ -30,9 +30,7 @@ export const StudySelectorStats: React.FunctionComponent<{
                                         props.store.showSelectedStudiesOnly = !props
                                             .store.showSelectedStudiesOnly;
                                 }}
-                                // TODO: (CBIO-730) I think this color change should be done using a variable from src/globalStyles/variables.scss.
-                                // We'll improve this later when we finish all the 508 fixes.
-                                style={{ color: '#2F73A7' }}
+                                className="homeStudySelectorStatsColor"
                             >
                                 {props.store.selectableSelectedStudies.length ==
                                     0 && (
