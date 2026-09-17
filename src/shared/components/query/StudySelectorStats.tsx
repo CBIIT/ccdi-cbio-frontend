@@ -30,6 +30,7 @@ export const StudySelectorStats: React.FunctionComponent<{
                                         props.store.showSelectedStudiesOnly = !props
                                             .store.showSelectedStudiesOnly;
                                 }}
+                                className="homeStudySelectorStatsColor"
                             >
                                 {props.store.selectableSelectedStudies.length ==
                                     0 && (
